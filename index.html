@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DSP Lua generator helper</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="generator.js"></script>
+  </head>
+  <body>
+    <form action="" id="gen-form">
+      <div class="space-y-4">
+        <div class="border-b border-gray-900/10 columns-1">
+          <div class="m-5 grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-1">
+            <label
+              for="id"
+              class="block text-sm font-medium leading-6 text-gray-1000"
+              >Deck ID*</label
+            >
+            <div class="mt-1">
+              <div
+                class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-600 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md"
+              >
+                <input
+                  type="text"
+                  name="id"
+                  id="id"
+                  class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-1000 placeholder:text-gray-500 focus:ring-0 sm:text-sm sm:leading-6"
+                  placeholder="Unique name, unlikely to be used by others"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+          <div class="m-5 grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-1">
+            <label
+              for="name"
+              class="block text-sm font-medium leading-6 text-gray-1000"
+              >Name of the deck*</label
+            >
+            <div class="mt-1">
+              <div
+                class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-600 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md"
+              >
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-1000 placeholder:text-gray-500 focus:ring-0 sm:text-sm sm:leading-6"
+                  placeholder="A nice name for your deck"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+          <div class="m-5 grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-1">
+            <label
+              for="suit"
+              class="block text-sm font-medium leading-6 text-gray-1000"
+              >Suit replaced*</label
+            >
+            <div class="mt-1">
+              <select
+                name="suit"
+                id="suit"
+                class="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                required
+              >
+                <option value="all">
+                  All of them (&#9824;, &#9829;, &#9827;, &#9830;)
+                </option>
+                <option value="spade">Only Spades (&#9824;)</option>
+                <option value="heart">Only Hearts (&#9829;)</option>
+                <option value="club">Only Clubs (&#9827;)</option>
+                <option value="diamond">Only Diamonds (&#9830;)</option>
+              </select>
+            </div>
+            <div class="relative flex gap-x-3 mt-4">
+              <div class="flex h-6 items-center">
+                <input
+                  id="high-contrast"
+                  name="high-contrast"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                />
+              </div>
+              <div class="text-sm leading-6">
+                <label for="high-contrast" class="font-medium text-gray-900"
+                  >With high contrast version</label
+                >
+                <p class="text-gray-500">
+                  Includes an alternative version for high contrast
+                </p>
+              </div>
+            </div>
+            <label
+              for="cards"
+              class="block text-sm font-medium leading-6 text-gray-1000"
+              >Cards replaced</label
+            >
+            <div class="mt-1">
+              <select
+                name="cards"
+                id="cards"
+                class="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                multiple
+              >
+                <option selected>2</option>
+                <option selected>3</option>
+                <option selected>4</option>
+                <option selected>5</option>
+                <option selected>6</option>
+                <option selected>7</option>
+                <option selected>8</option>
+                <option selected>9</option>
+                <option selected>10</option>
+                <option selected>J</option>
+                <option selected>Q</option>
+                <option selected>K</option>
+                <option selected>A</option>
+              </select>
+            </div>
+            <div class="mt-6 flex items-center justify-start gap-x-6">
+              <button
+                type="submit"
+                class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >
+                Generate file
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="border-b border-gray-900/10 columns-1">
+          <div id="next-steps" hidden></div>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
